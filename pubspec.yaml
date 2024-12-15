@@ -70,6 +70,10 @@ flutter:
     - assets/iconoDerrumbe.png
     - assets/fondoTerremoto.png
     - assets/imagen_de_adentro_terremoto.png
+    - assets/fondo_inundacion.png
+    - assets/imagen_de_adentro_Inundacion.png
+    - assets/fondo_Derrumbe.png
+    - assets/imagen_de_adentro_derrumbe.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

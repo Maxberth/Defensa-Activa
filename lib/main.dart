@@ -64,11 +64,39 @@ class MainMenu extends StatelessWidget {
               );
             }),
             _buildMenuItem(context, 'assets/iconoDerrumbe.png', 'Derrumbe', () {
-              _showInDevelopmentMessage(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScenarioScreen(
+                    fondoImage: 'assets/fondo_Derrumbe.png',
+                    overlayImage: 'assets/imagen_de_adentro_derrumbe.png',
+                    overlayWidth: 250, // Tamaño base de la imagen de overlay
+                    overlayHeight: 250,
+                    overlayPositionX: 0.73, // Centrado en X
+                    overlayPositionY: 0.65, // Centrado en Y
+                    message:
+                        '🎮 Tip de Seguridad: "Después de un derrumbe, evita acercarte a vehículos dañados, ya que pueden estar inestables o tener escombros encima. Si estás dentro de un auto atrapado en un derrumbe y no puedes salir, permanece en el vehículo y trata de hacer señales visibles o auditivas para que los equipos de rescate te encuentren."',
+                  ),
+                ),
+              );
             }),
             _buildMenuItem(context, 'assets/iconoInundacion.png', 'Inundación',
                 () {
-              _showInDevelopmentMessage(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScenarioScreen(
+                    fondoImage: 'assets/fondo_inundacion.png',
+                    overlayImage: 'assets/imagen_de_adentro_Inundacion.png',
+                    overlayWidth: 138, // Tamaño base de la imagen de overlay
+                    overlayHeight: 137,
+                    overlayPositionX: 0.78, // Centrado en X
+                    overlayPositionY: 0.71, // Centrado en Y
+                    message:
+                        '⚠️ Consejo: "Si necesitas evacuar en una balsa durante una inundación, asegúrate de llevar chaleco salvavidas y mantener un equilibrio estable para evitar volcaduras. Mantente en áreas de agua más calmada y evita corrientes fuertes o áreas con escombros. Lleva contigo una linterna, un silbato o teléfono móvil para solicitar ayuda en caso necesario."',
+                  ),
+                ),
+              );
             }),
           ],
         ),
