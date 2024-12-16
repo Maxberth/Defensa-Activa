@@ -74,6 +74,11 @@ flutter:
     - assets/imagen_de_adentro_Inundacion.png
     - assets/fondo_Derrumbe.png
     - assets/imagen_de_adentro_derrumbe.png
+    - assets/Busqueda.png
+    - assets/kitgame.png
+    - assets/tercerminijuego.png
+    - assets/cuartominijuego.png
+    - assets/personaMain.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'safety_scenarios.dart'; // Import the safety scenarios module
 
 void main() {
   runApp(MyApp());
@@ -27,76 +28,25 @@ class MainMenu extends StatelessWidget {
           crossAxisSpacing: 20,
           padding: EdgeInsets.all(16),
           children: [
-            _buildMenuItem(context, 'assets/iconoIncendio.png', 'Incendio', () {
+            _buildMenuItem(context, 'assets/Busqueda.png', 'BUSQUEDA', () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ScenarioScreen(
-                    fondoImage: 'assets/fondo_Incendio.png',
-                    overlayImage: 'assets/imagen_de_adentro_Incendio.png',
-                    overlayWidth: 95,
-                    overlayHeight: 95,
-                    overlayPositionX: 0.7,
-                    overlayPositionY: 0.55,
-                    message:
-                        '🎮 Tip de Seguridad: No dejes tu consola de videojuegos conectada y encendida cuando no la estés usando. Puede sobrecalentarse y provocar fallos eléctricos o incluso incendios. Apágala y desconéctala después de jugar para mantenerla en buen estado y evitar riesgos. ¡Cuida tu equipo y tu hogar!',
-                  ),
+                  builder: (context) => SafetyScenariosModule
+                      .getMainMenu(), // Replace BusquedaMenu with SafetyScenariosModule
                 ),
               );
             }),
-            _buildMenuItem(context, 'assets/iconoTerremoto.png', 'Terremoto',
+            _buildMenuItem(context, 'assets/kitgame.png', 'KITGAME', () {
+              _showInDevelopmentMessage(context, 'KITGAME');
+            }),
+            _buildMenuItem(context, 'assets/tercerminijuego.png', '3MINIJUEGO',
                 () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ScenarioScreen(
-                    fondoImage: 'assets/fondoTerremoto.png',
-                    overlayImage: 'assets/imagen_de_adentro_terremoto.png',
-                    overlayWidth: 138, // Tamaño base de la imagen de overlay
-                    overlayHeight: 138,
-                    overlayPositionX: 0.71, // Centrado en X
-                    overlayPositionY: 0.556, // Centrado en Y
-                    overlayScale: 3.0, // Escala la imagen 3 veces su tamaño
-                    message:
-                        '⚠️ Advertencia: Aléjate de las ventanas. Los vidrios pueden romperse y causar lesiones graves. Busca refugio debajo de una mesa sólida o en una zona segura lejos de objetos que puedan caer. ¡Protégete y mantén la calma!',
-                  ),
-                ),
-              );
+              _showInDevelopmentMessage(context, '3MINIJUEGO');
             }),
-            _buildMenuItem(context, 'assets/iconoDerrumbe.png', 'Derrumbe', () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ScenarioScreen(
-                    fondoImage: 'assets/fondo_Derrumbe.png',
-                    overlayImage: 'assets/imagen_de_adentro_derrumbe.png',
-                    overlayWidth: 250, // Tamaño base de la imagen de overlay
-                    overlayHeight: 250,
-                    overlayPositionX: 0.73, // Centrado en X
-                    overlayPositionY: 0.65, // Centrado en Y
-                    message:
-                        '🎮 Tip de Seguridad: "Después de un derrumbe, evita acercarte a vehículos dañados, ya que pueden estar inestables o tener escombros encima. Si estás dentro de un auto atrapado en un derrumbe y no puedes salir, permanece en el vehículo y trata de hacer señales visibles o auditivas para que los equipos de rescate te encuentren."',
-                  ),
-                ),
-              );
-            }),
-            _buildMenuItem(context, 'assets/iconoInundacion.png', 'Inundación',
+            _buildMenuItem(context, 'assets/cuartominijuego.png', '4MINIJUEGO',
                 () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ScenarioScreen(
-                    fondoImage: 'assets/fondo_inundacion.png',
-                    overlayImage: 'assets/imagen_de_adentro_Inundacion.png',
-                    overlayWidth: 138, // Tamaño base de la imagen de overlay
-                    overlayHeight: 137,
-                    overlayPositionX: 0.78, // Centrado en X
-                    overlayPositionY: 0.71, // Centrado en Y
-                    message:
-                        '⚠️ Consejo: "Si necesitas evacuar en una balsa durante una inundación, asegúrate de llevar chaleco salvavidas y mantener un equilibrio estable para evitar volcaduras. Mantente en áreas de agua más calmada y evita corrientes fuertes o áreas con escombros. Lleva contigo una linterna, un silbato o teléfono móvil para solicitar ayuda en caso necesario."',
-                  ),
-                ),
-              );
+              _showInDevelopmentMessage(context, '4MINIJUEGO');
             }),
           ],
         ),
@@ -126,12 +76,12 @@ class MainMenu extends StatelessWidget {
     );
   }
 
-  void _showInDevelopmentMessage(BuildContext context) {
+  void _showInDevelopmentMessage(BuildContext context, String featureName) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text("En desarrollo"),
-        content: Text("Esta función está en desarrollo."),
+        content: Text("La función '$featureName' está en desarrollo."),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -143,75 +93,5 @@ class MainMenu extends StatelessWidget {
   }
 }
 
-class ScenarioScreen extends StatelessWidget {
-  final String fondoImage;
-  final String overlayImage;
-  final double overlayWidth;
-  final double overlayHeight;
-  final double overlayPositionX;
-  final double overlayPositionY;
-  final double
-      overlayScale; // Nuevo parámetro para la escala de la imagen de overlay
-  final String message;
-
-  ScenarioScreen({
-    required this.fondoImage,
-    required this.overlayImage,
-    required this.overlayWidth,
-    required this.overlayHeight,
-    required this.overlayPositionX,
-    required this.overlayPositionY,
-    this.overlayScale = 1.0, // Valor predeterminado para la escala
-    required this.message,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Escenario"),
-      ),
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(
-              fondoImage,
-              fit: BoxFit.cover,
-            ),
-          ),
-          // Posicionamiento específico de la imagen de adentro con escala
-          Positioned(
-            top: MediaQuery.of(context).size.height * overlayPositionY -
-                (overlayHeight * overlayScale / 2),
-            left: MediaQuery.of(context).size.width * overlayPositionX -
-                (overlayWidth * overlayScale / 2),
-            child: GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    content: Text(message),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: Text("Aceptar"),
-                      ),
-                    ],
-                  ),
-                );
-              },
-              child: Transform.scale(
-                scale: overlayScale, // Aplica la escala a la imagen
-                child: Image.asset(
-                  overlayImage,
-                  width: overlayWidth,
-                  height: overlayHeight,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+// Optional: You can keep or remove this class
+// class BusquedaMenu extends StatelessWidget { ... }
