@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'safety_scenarios.dart'; // Import the safety scenarios module
+import 'safety_scenarios.dart'; // Existing safety scenarios module
+import 'backpack_game.dart'; // New backpack game module
 
 void main() {
   runApp(MyApp());
@@ -32,13 +33,17 @@ class MainMenu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SafetyScenariosModule
-                      .getMainMenu(), // Replace BusquedaMenu with SafetyScenariosModule
+                  builder: (context) => SafetyScenariosModule.getMainMenu(),
                 ),
               );
             }),
             _buildMenuItem(context, 'assets/kitgame.png', 'KITGAME', () {
-              _showInDevelopmentMessage(context, 'KITGAME');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BackpackGame(),
+                ),
+              );
             }),
             _buildMenuItem(context, 'assets/tercerminijuego.png', '3MINIJUEGO',
                 () {
@@ -92,6 +97,3 @@ class MainMenu extends StatelessWidget {
     );
   }
 }
-
-// Optional: You can keep or remove this class
-// class BusquedaMenu extends StatelessWidget { ... }

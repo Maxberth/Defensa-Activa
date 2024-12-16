@@ -79,7 +79,16 @@ flutter:
     - assets/tercerminijuego.png
     - assets/cuartominijuego.png
     - assets/personaMain.png
-  #   - images/a_dot_burr.jpeg
+    - assets/alcohol.png
+    - assets/atun.png
+    - assets/botella_agua.png
+    - assets/consola.png
+    - assets/gaseosa.png
+    - assets/linterna.png
+    - assets/manta.png
+    - assets/perfume.png
+    - assets/mochila.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
