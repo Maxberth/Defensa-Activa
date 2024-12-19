@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'safety_scenarios.dart'; // Existing safety scenarios module
 import 'backpack_game.dart'; // New backpack game module
+import 'minijuego.dart'; // Third game module
+import 'senal.dart';
+//import 'Klotski.dart'; // Klotski game module
 
 void main() {
   runApp(MyApp());
@@ -47,11 +50,17 @@ class MainMenu extends StatelessWidget {
             }),
             _buildMenuItem(context, 'assets/tercerminijuego.png', '3MINIJUEGO',
                 () {
-              _showInDevelopmentMessage(context, '3MINIJUEGO');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Minijuego()),
+              );
             }),
             _buildMenuItem(context, 'assets/cuartominijuego.png', '4MINIJUEGO',
                 () {
-              _showInDevelopmentMessage(context, '4MINIJUEGO');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SenalPage()),
+              );
             }),
           ],
         ),
@@ -75,22 +84,6 @@ class MainMenu extends StatelessWidget {
           Text(
             title,
             style: TextStyle(fontSize: 16),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showInDevelopmentMessage(BuildContext context, String featureName) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("En desarrollo"),
-        content: Text("La función '$featureName' está en desarrollo."),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text("Aceptar"),
           ),
         ],
       ),

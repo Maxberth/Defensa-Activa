@@ -88,6 +88,24 @@ flutter:
     - assets/manta.png
     - assets/perfume.png
     - assets/mochila.png
+    - assets/rol_doctor.png
+    - assets/rol_bombero.png
+    - assets/rol_policia.png
+    - assets/respuesta_doctor.png
+    - assets/respuesta_bombero.png
+    - assets/respuesta_policia.png
+    - assets/caso_incendio.png
+    - assets/caso_herido.png
+    - assets/equipo_de_primeros_auxilios.png
+    - assets/desfibrilador.png
+    - assets/salida_emergencia_deslizar.png
+    - assets/desfibrilador.png
+    - assets/romper_para_pasar.png
+    - assets/peligro_incendio.png
+    - assets/peligro_radiacion.png
+    - assets/peligro_intoxicacion.png
+    - assets/peligro_alta_temperatura.png
+    - assets/peligro_baja_temperatura.png
 
   #   - images/a_dot_ham.jpeg
 
