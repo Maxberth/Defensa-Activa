@@ -67,7 +67,7 @@ class _BackpackGameState extends State<BackpackGame> {
       BackpackItem(
         name: 'Linterna',
         imagePath: 'assets/linterna.png',
-        weight: 0.6,
+        weight: 4,
         utility: 8,
       ),
       BackpackItem(
