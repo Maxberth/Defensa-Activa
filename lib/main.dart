@@ -9,6 +9,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,11 +20,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MainMenu extends StatelessWidget {
+  const MainMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(), // AppBar sin título
-      backgroundColor: Color(0xFF000080), // Navy blue background
+      backgroundColor: const Color(0xFF000080), // Navy blue background
       body: Column(
         children: [
           Container(
@@ -33,8 +37,8 @@ class MainMenu extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Container(
-                    padding: EdgeInsets.all(40),
-                    child: Center(
+                    padding: const EdgeInsets.all(40),
+                    child: const Center(
                       child: Text(
                         "Hola, \nciudadano",
                         style: TextStyle(
@@ -59,7 +63,7 @@ class MainMenu extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: GridView.count(
                 crossAxisCount: 2,
                 mainAxisSpacing: 20,
@@ -144,10 +148,10 @@ class MainMenu extends StatelessWidget {
               width: 80,
               height: 80,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
               ),

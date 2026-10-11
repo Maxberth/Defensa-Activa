@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class SenalPage extends StatefulWidget {
+  const SenalPage({super.key});
+
   @override
   _SenalPageState createState() => _SenalPageState();
 }
@@ -101,15 +103,15 @@ class _SenalPageState extends State<SenalPage> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text("¡Felicidades!"),
-            content: Text("Has completado todos los niveles."),
+            title: const Text("¡Felicidades!"),
+            content: const Text("Has completado todos los niveles."),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                   Navigator.of(context).pop();
                 },
-                child: Text("Salir"),
+                child: const Text("Salir"),
               ),
             ],
           ),
@@ -117,7 +119,8 @@ class _SenalPageState extends State<SenalPage> {
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Respuesta incorrecta, inténtalo de nuevo.")),
+        const SnackBar(
+            content: Text("Respuesta incorrecta, inténtalo de nuevo.")),
       );
     }
   }
@@ -134,24 +137,24 @@ class _SenalPageState extends State<SenalPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
               child: Image.asset(
                 signalData[currentLevel]['image']!,
                 height: MediaQuery.of(context).size.height * 0.4,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             GestureDetector(
               onTap: () async {
                 TextEditingController controller = TextEditingController();
                 await showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: Text("Adivina la palabra"),
+                    title: const Text("Adivina la palabra"),
                     content: TextField(
                       controller: controller,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: "Escribe tu respuesta aquí"),
                     ),
                     actions: [
@@ -159,7 +162,7 @@ class _SenalPageState extends State<SenalPage> {
                         onPressed: () {
                           Navigator.of(context).pop(controller.text);
                         },
-                        child: Text("Aceptar"),
+                        child: const Text("Aceptar"),
                       ),
                     ],
                   ),
@@ -171,14 +174,14 @@ class _SenalPageState extends State<SenalPage> {
               },
               child: Text(
                 displayedWord,
-                style: TextStyle(fontSize: 24, letterSpacing: 2),
+                style: const TextStyle(fontSize: 24, letterSpacing: 2),
                 textAlign: TextAlign.center,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             ElevatedButton(
               onPressed: revealLetter,
-              child: Text("Ayuda: Revelar una letra"),
+              child: const Text("Ayuda: Revelar una letra"),
             ),
           ],
         ),

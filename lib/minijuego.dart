@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Minijuego extends StatelessWidget {
+  const Minijuego({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Nivel1();
@@ -8,13 +10,15 @@ class Minijuego extends StatelessWidget {
 }
 
 class Nivel1 extends StatelessWidget {
+  const Nivel1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nivel 1'),
+        title: const Text('Nivel 1'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -31,7 +35,7 @@ class Nivel1 extends StatelessWidget {
             child: Container(
               color: Colors.green,
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 '¿A quién deberíamos llamar?',
                 style: TextStyle(
                   color: Colors.white,
@@ -71,7 +75,7 @@ class Nivel1 extends StatelessWidget {
           );
         },
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 2),
+          margin: const EdgeInsets.symmetric(horizontal: 2),
           height: double.infinity,
           child: AspectRatio(
             aspectRatio: 1 / 2, // Ajusta esto para hacer la imagen más alta
@@ -90,11 +94,13 @@ class Nivel1 extends StatelessWidget {
 
 // Las clases de respuesta permanecen iguales
 class Nivel1RespuestaDoctor extends StatelessWidget {
+  const Nivel1RespuestaDoctor({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Respuesta: Doctor'),
+        title: const Text('Respuesta: Doctor'),
       ),
       body: Column(
         children: [
@@ -108,7 +114,7 @@ class Nivel1RespuestaDoctor extends StatelessWidget {
             child: Container(
               color: Colors.red,
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 'INCORRECTO\nEllos brindan asistencia médica en casos de accidentes, enfermedades graves o lesiones. Pero para apagar incendios no son los adecuados.',
                 style: TextStyle(color: Colors.white, fontSize: 18),
                 textAlign: TextAlign.center,
@@ -116,7 +122,7 @@ class Nivel1RespuestaDoctor extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             onPressed: () {
               Navigator.popUntil(context, (route) => route.isFirst);
             },
@@ -128,11 +134,13 @@ class Nivel1RespuestaDoctor extends StatelessWidget {
 }
 
 class Nivel1RespuestaPolicia extends StatelessWidget {
+  const Nivel1RespuestaPolicia({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Respuesta: Policía'),
+        title: const Text('Respuesta: Policía'),
       ),
       body: Column(
         children: [
@@ -146,7 +154,7 @@ class Nivel1RespuestaPolicia extends StatelessWidget {
             child: Container(
               color: Colors.red,
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 'INCORRECTO\nEllos ayudan a proteger a las personas y controlar las calles, pero para apagar un incendio no son muy buenos.',
                 style: TextStyle(color: Colors.white, fontSize: 18),
                 textAlign: TextAlign.center,
@@ -154,7 +162,7 @@ class Nivel1RespuestaPolicia extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             onPressed: () {
               Navigator.popUntil(context, (route) => route.isFirst);
             },
@@ -166,11 +174,13 @@ class Nivel1RespuestaPolicia extends StatelessWidget {
 }
 
 class Nivel1RespuestaBombero extends StatelessWidget {
+  const Nivel1RespuestaBombero({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Respuesta: Bombero'),
+        title: const Text('Respuesta: Bombero'),
       ),
       body: Column(
         children: [
@@ -184,7 +194,7 @@ class Nivel1RespuestaBombero extends StatelessWidget {
             child: Container(
               color: Colors.green,
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 'CORRECTO\nEllos están entrenados para apagar incendios, rescatar personas atrapadas y controlar situaciones relacionadas con fuego.',
                 style: TextStyle(color: Colors.white, fontSize: 18),
                 textAlign: TextAlign.center,
@@ -192,7 +202,7 @@ class Nivel1RespuestaBombero extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             onPressed: () {
               Navigator.popUntil(context, (route) => route.isFirst);
             },

@@ -17,6 +17,8 @@ class BackpackItem {
 }
 
 class BackpackGame extends StatefulWidget {
+  const BackpackGame({super.key});
+
   @override
   _BackpackGameState createState() => _BackpackGameState();
 }
@@ -97,7 +99,7 @@ class _BackpackGameState extends State<BackpackGame> {
         currentScore += item.utility;
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('¡No puedes agregar más peso a la mochila!'),
             duration: Duration(seconds: 2),
           ),
@@ -120,10 +122,10 @@ class _BackpackGameState extends State<BackpackGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Kit de Emergencia'),
+        title: const Text('Kit de Emergencia'),
         actions: [
           IconButton(
-            icon: Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh),
             onPressed: _resetGame,
           ),
         ],
@@ -132,7 +134,7 @@ class _BackpackGameState extends State<BackpackGame> {
         child: Column(
           children: [
             // Backpack and Stats Section (50% of the screen)
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height / 2,
               child: Stack(
                 alignment: Alignment.center,
@@ -162,7 +164,7 @@ class _BackpackGameState extends State<BackpackGame> {
                             // Texto blanco superpuesto
                             Text(
                               'Peso: ${currentWeight.toStringAsFixed(1)} / $maxBackpackWeight kg',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white, // Color del interior
@@ -187,7 +189,7 @@ class _BackpackGameState extends State<BackpackGame> {
                             // Texto blanco superpuesto
                             Text(
                               'Puntaje: $currentScore',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white, // Color del interior
@@ -206,9 +208,9 @@ class _BackpackGameState extends State<BackpackGame> {
             GridView.builder(
               shrinkWrap: true,
               physics:
-                  NeverScrollableScrollPhysics(), // Disable internal scroll for GridView
-              padding: EdgeInsets.all(8), // Reduce padding for the grid
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  const NeverScrollableScrollPhysics(), // Disable internal scroll for GridView
+              padding: const EdgeInsets.all(8), // Reduce padding for the grid
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3, // Three items per row
                 crossAxisSpacing: 8, // Reduce space between items
                 mainAxisSpacing: 8, // Reduce space between rows
@@ -241,15 +243,17 @@ class _BackpackGameState extends State<BackpackGame> {
                         ),
                         Text(
                           item.name,
-                          style: TextStyle(fontSize: 12),
+                          style: const TextStyle(fontSize: 12),
                         ),
                         Text(
                           '${item.weight} kg',
-                          style: TextStyle(fontSize: 10, color: Colors.grey),
+                          style:
+                              const TextStyle(fontSize: 10, color: Colors.grey),
                         ),
                         Text(
                           'Util: ${item.utility}',
-                          style: TextStyle(fontSize: 10, color: Colors.blue),
+                          style:
+                              const TextStyle(fontSize: 10, color: Colors.blue),
                         ),
                       ],
                     ),

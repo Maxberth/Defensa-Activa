@@ -35,20 +35,22 @@ class SafetyScenariosModule {
 }
 
 class MainMenu extends StatelessWidget {
+  const MainMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Menú Principal"),
+        title: const Text("Menú Principal"),
       ),
       body: Container(
-        color: Color(0xFF001F3F), // Azul marino
+        color: const Color(0xFF001F3F), // Azul marino
         child: Center(
           child: GridView.count(
             crossAxisCount: 2,
             mainAxisSpacing: 20,
             crossAxisSpacing: 20,
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             children: [
               _buildMenuItem(
                 context,
@@ -166,7 +168,7 @@ class MainMenu extends StatelessWidget {
               color: Colors.black.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 7,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -188,17 +190,17 @@ class MainMenu extends StatelessWidget {
                       Colors.transparent,
                       Colors.black.withOpacity(0.7),
                     ],
-                    stops: [0.6, 1.0],
+                    stops: const [0.6, 1.0],
                   ),
                 ),
               ),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -231,7 +233,8 @@ class ScenarioScreen extends StatelessWidget {
   final double overlayScale;
   final String message;
 
-  ScenarioScreen({
+  const ScenarioScreen({
+    super.key,
     required this.fondoImage,
     required this.overlayImage,
     required this.overlayWidth,
@@ -246,7 +249,7 @@ class ScenarioScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Escenario"),
+        title: const Text("Escenario"),
       ),
       body: Stack(
         children: [
@@ -270,7 +273,7 @@ class ScenarioScreen extends StatelessWidget {
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
-                        child: Text("Aceptar"),
+                        child: const Text("Aceptar"),
                       ),
                     ],
                   ),
